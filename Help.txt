@@ -1,0 +1,70 @@
+ API Keys & Live Adapter Setup Guide
+In OmniFlow AI, only ONE AI API key is mandatory to run all 8 AI agents and start digital marketing.
+
+All third-party integration adapters (Google Ads, Meta, WordPress, etc.) are optional modular connectors — if an adapter is not connected, the platform automatically runs in smart simulated/heuristic mode without breaking your workflows.
+
+⚡ 1. The ONLY Mandatory API Key (Core AI Engine)
+To activate live autonomous content generation, keyword analysis, lead scoring, and campaign orchestration:
+
+Priority	Provider	Environment Variable / Setting	Where to Get It
+Mandatory (Choose 1)	Google Gemini (Recommended)	GEMINI_API_KEY	Google AI Studio (Free tier available)
+Alternative	OpenAI GPT-4o	OPENAI_API_KEY	OpenAI API Keys
+💡 Note: You only need one of the above. If you enter a Gemini key, you do not need an OpenAI key.
+
+🔌 2. Channel-Specific Live Adapters (Required Only When Connecting Real Accounts)
+When you or your client wants to push live ad campaigns, auto-publish blogs, or sync leads to a CRM, configure the respective keys below:
+
+A. Search & Analytics
+Adapter	Required Credentials	Setup Instructions
+Google Search Console	• OAuth 2.0 Client ID
+• Client Secret	1. Go to Google Cloud Console.
+2. Enable Google Search Console API.
+3. Create OAuth 2.0 Web Client credentials and add your redirect URI.
+Google Analytics 4 (GA4)	• Measurement ID (e.g. G-XXXXXXX)
+• GA4 API Secret	1. Open your GA4 Property ➔ Admin ➔ Data Streams.
+2. Click Measurement Protocol API secrets and create a new secret.
+B. Paid Advertising & Social Media
+Adapter	Required Credentials	Setup Instructions
+Google Ads	• Developer Token
+• Manager Customer ID (MCC)	1. Obtain a Developer Token from your Google Ads Manager Account (MCC).
+2. Link the client's Google Ads account ID.
+Meta (Facebook & IG Ads)	• App ID
+• App Secret
+• Access Token	1. Register an app in Meta for Developers.
+2. Add the Marketing API product.
+3. Generate a Long-Lived System User Access Token.
+LinkedIn Marketing	• Client ID
+• Client Secret	1. Create an app in LinkedIn Developer Portal.
+2. Request Marketing Developer Platform access.
+C. Publishing, Email & CRM
+Adapter	Required Credentials	Setup Instructions
+WordPress CMS	• WordPress Site URL
+• Username
+• Application Password	1. Log in to WordPress Admin ➔ Users ➔ Profile.
+2. Scroll to Application Passwords, enter a name (e.g. OmniFlow), and click Add New.
+3. Paste the generated password.
+HubSpot CRM	• Private App Access Token	1. In HubSpot, go to Settings ➔ Integrations ➔ Private Apps.
+2. Create a Private App with crm.objects.contacts.write and crm.objects.deals.write permissions.
+Brevo (Sendinblue)	• API v3 Key (e.g. xkeysib-...)	1. Go to Brevo ➔ SMTP & API ➔ API Keys.
+2. Generate an API v3 key for transactional and campaign emails.
+Razorpay / Stripe	• Key ID
+• Key Secret	1. Log in to Razorpay Dashboard ➔ Settings ➔ API Keys.
+2. Copy your Key ID & Secret for client billing.
+📍 Where to Configure These Keys in the Platform
+System-wide Default Keys (Admins): Navigate to System Settings ➔ API Keys & Adapters tab.
+
+Client-Specific Account Keys (Per Client Workspace): Navigate to Integrations Hub ➔ Select the Client ➔ Click Connect / Configure next to any adapter to input client-specific OAuth credentials.
+
+
+----------------------------------------------------------------------------------------------
+
+🧪 Try It Now in Your Running App
+Your application is running live locally:
+
+Screen / Portal	URL	Demo Login Credentials
+Admin System Settings	http://localhost:5173/settings	admin@omniflow.ai / password123
+Client Workspace Settings	http://localhost:5173/portal/settings	client@apexhealth.io / password123
+Client In-App User Guide	http://localhost:5173/portal/guide	Any client or admin account
+FastAPI Interactive API Docs	http://localhost:8000/api/v1/docs	Super Admin Bearer Token
+
+
